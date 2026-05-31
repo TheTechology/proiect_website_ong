@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Grupul Verde</title>
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="stylesheet" href="styles/site.css">
+</head>
+<body data-page="contact">
+
+<div id="site-top"></div>
+
+<main class="wrap">
+  <header class="page-head" style="padding-bottom:32px;">
+    <div class="breadcrumb"><a href="index.html">Acasă</a><span class="sep">/</span><span>Contact</span></div>
+    <span class="eyebrow ph-eyebrow"><span class="dot-mini"></span>Adjud, Vrancea · 46.10°N 27.17°E</span>
+    <h1>Hai să <mark>vorbim.</mark></h1>
+    <p class="ph-sub">Voluntar, profesor, primărie, finanțator — dacă te interesează un sat anume sau un program anume, scrie-ne. Răspundem la fiecare mesaj.</p>
+  </header>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="contact-grid">
+      <!-- FORM -->
+      <div class="donate-card reveal">
+        <label style="display:block;font-size:13px;font-weight:700;color:var(--fg-2);margin-bottom:12px;letter-spacing:-0.1px;">Scriu pentru că vreau să...</label>
+        <div class="seg" id="seg">
+          <button class="active" data-seg="voluntar">Fiu voluntar</button>
+          <button data-seg="partener">Propun un parteneriat</button>
+          <button data-seg="general">Întreb altceva</button>
+        </div>
+
+        <div class="field"><label for="cname">Nume</label><input class="input" type="text" id="cname" placeholder="Numele tău"></div>
+        <div class="field"><label for="cemail">Email</label><input class="input" type="email" id="cemail" placeholder="adresa@email.ro"></div>
+        <div class="field" id="orgWrap" style="display:none;"><label for="corg">Organizație</label><input class="input" type="text" id="corg" placeholder="Școală, ONG, primărie, finanțator..."></div>
+        <div class="field"><label for="cmsg" id="msgLabel">Cu ce ne poți ajuta?</label><textarea class="input" id="cmsg" placeholder="Spune-ne pe scurt..."></textarea></div>
+
+        <button class="btn btn-primary btn-lg" id="sendBtn" style="width:100%;">Trimite mesajul <i data-lucide="send"></i></button>
+      </div>
+
+      <!-- INFO -->
+      <div class="contact-info reveal d1">
+        <div class="info-card"><div class="ic-ic"><i data-lucide="map-pin"></i></div><div class="ic-lbl">Sediu</div><div class="ic-val">Adjud, Vrancea</div><div class="ic-sub">46.10°N · 27.17°E · România</div></div>
+        <div class="info-card"><div class="ic-ic"><i data-lucide="mail"></i></div><div class="ic-lbl">Email</div><div class="ic-val">contact@grupulverde.ro</div><div class="ic-sub">Răspundem în 2–3 zile lucrătoare</div></div>
+        <div class="info-card"><div class="ic-ic"><i data-lucide="building-2"></i></div><div class="ic-lbl">Date organizație</div><div class="ic-val">Asociația Grupul Verde</div><div class="ic-sub">CIF 44109108 · Activi din 2021</div></div>
+        <div class="info-card" style="background:var(--color-light-mint);box-shadow:none;">
+          <div class="ic-lbl" style="color:var(--color-positive);">Avem nevoie de</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+            <span class="chip">Mentori cod</span><span class="chip">Hands-on Arduino</span><span class="chip">Ghizi Natura 2000</span><span class="chip">Traducători</span><span class="chip">Design grafic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="image-slot.js"></script>
+<script src="js/site.js"></script>
+<script src="js/motion.js"></script>
+<script>
+  (function () {
+    var labels = {
+      voluntar: "Cu ce ne poți ajuta? (mentorat, Arduino, expediții, traducere, design...)",
+      partener: "Despre ce parteneriat e vorba?",
+      general: "Mesajul tău"
+    };
+    document.querySelectorAll("#seg button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll("#seg button").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        var s = b.dataset.seg;
+        document.getElementById("orgWrap").style.display = s === "partener" ? "block" : "none";
+        document.getElementById("msgLabel").textContent = labels[s];
+      });
+    });
+    document.getElementById("sendBtn").addEventListener("click", function () {
+      var name = document.getElementById("cname").value.trim();
+      var email = document.getElementById("cemail").value.trim();
+      if (!name || !email) { window.gvToast && window.gvToast("Completează numele și emailul, te rugăm."); return; }
+      window.gvToast && window.gvToast("Mulțumim, " + name.split(" ")[0] + "! Ți-am primit mesajul.");
+      document.getElementById("cname").value = "";
+      document.getElementById("cemail").value = "";
+      document.getElementById("cmsg").value = "";
+    });
+  })();
+</script>
+</body>
+</html>

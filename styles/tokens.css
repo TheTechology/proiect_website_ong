@@ -1,0 +1,224 @@
+/* ============================================================
+   Web_GV Design System — Colors & Type
+   Wise-inspired: lime-green fintech with extreme display type.
+   ============================================================ */
+
+/* ---------- Fonts ----------
+   Wise Sans is proprietary. We substitute with Inter Tight at
+   weight 900 — the tightest free display match available.
+   Inter is used for body (per the source spec).
+   Both load contextual alternates ("calt").
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@700;800;900&display=swap");
+
+:root {
+  /* ===== Brand colors ===== */
+  --color-near-black:        #0e0f0c;   /* primary text, dark sections */
+  --color-wise-green:        #9fe870;   /* primary CTA, accent */
+  --color-dark-green:        #163300;   /* button text on green */
+  --color-light-mint:        #e2f6d5;   /* soft surface, badges */
+  --color-pastel-green:      #cdffad;   /* interactive contrast hover */
+
+  /* ===== Semantic colors ===== */
+  --color-positive:          #054d28;   /* success */
+  --color-danger:            #d03238;   /* destructive, error */
+  --color-warning:           #ffd11a;   /* warning */
+  --color-info-bg:           rgba(56, 200, 255, 0.10);  /* info tint */
+  --color-bright-orange:     #ffc091;   /* warm accent */
+
+  /* ===== Neutrals ===== */
+  --color-warm-dark:         #454745;   /* secondary text, borders */
+  --color-gray:              #868685;   /* muted / tertiary text */
+  --color-light-surface:     #e8ebe6;   /* subtle green-tinted surface */
+  --color-white:             #ffffff;
+  --color-off-white:         #fafaf7;   /* warm off-white canvas */
+
+  /* ===== Semantic roles ===== */
+  --fg-1:                    var(--color-near-black);
+  --fg-2:                    var(--color-warm-dark);
+  --fg-3:                    var(--color-gray);
+  --fg-on-green:             var(--color-dark-green);
+  --fg-inverse:              var(--color-white);
+
+  --bg-1:                    var(--color-white);
+  --bg-2:                    var(--color-off-white);
+  --bg-3:                    var(--color-light-surface);
+  --bg-accent:               var(--color-light-mint);
+  --bg-inverse:              var(--color-near-black);
+
+  --border-subtle:           rgba(14, 15, 12, 0.12);
+  --border-strong:           var(--color-near-black);
+  --border-accent:           var(--color-wise-green);
+
+  --interactive-primary:         var(--color-wise-green);
+  --interactive-primary-hover:   var(--color-pastel-green);
+  --interactive-negative:        var(--color-danger);
+  --interactive-positive:        var(--color-positive);
+
+  /* ===== Type families ===== */
+  --font-display: "Inter Tight", "Wise Sans", Inter, system-ui, sans-serif;
+  --font-body:    Inter, Helvetica, Arial, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ===== Type scale (display — Wise Sans 900, lh 0.85) ===== */
+  --size-display-mega: 7.875rem;   /* 126px */
+  --size-display-hero: 6rem;       /* 96px  */
+  --size-section:      4rem;       /* 64px  */
+  --size-subsection:   2.5rem;     /* 40px  */
+  --size-alt-heading:  4.875rem;   /* 78px (Inter 600) */
+
+  /* ===== Type scale (UI / body — Inter) ===== */
+  --size-card-title:   1.625rem;   /* 26px */
+  --size-feature:      1.375rem;   /* 22px */
+  --size-body:         1.125rem;   /* 18px */
+  --size-caption:      0.875rem;   /* 14px */
+  --size-small:        0.75rem;    /* 12px */
+
+  --leading-display:   0.85;
+  --leading-tight:     1.10;
+  --leading-snug:      1.25;
+  --leading-body:      1.44;
+  --leading-loose:     1.86;
+
+  /* ===== Spacing (8px base, with fine increments) ===== */
+  --space-px:    1px;
+  --space-0-5:   2px;
+  --space-1:     4px;
+  --space-1-5:   6px;
+  --space-2:     8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-8:    32px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+
+  /* ===== Radii ===== */
+  --radius-min:     2px;    /* links, inputs */
+  --radius-input:  10px;    /* fields, combos */
+  --radius-sm:     16px;    /* small cards, radios */
+  --radius-md:     20px;    /* medium cards */
+  --radius-lg:     30px;    /* feature cards */
+  --radius-xl:     40px;    /* tables, large cards */
+  --radius-mega: 1000px;    /* presentation elements */
+  --radius-pill: 9999px;    /* buttons, images */
+  --radius-circle: 50%;
+
+  /* ===== Elevation (minimal — ring shadows only) ===== */
+  --ring-1:      rgba(14, 15, 12, 0.12) 0 0 0 1px;
+  --ring-inset:  rgb(134, 134, 133) 0 0 0 1px inset;
+  --ring-focus:  var(--color-wise-green) 0 0 0 3px;
+
+  /* ===== Motion ===== */
+  --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 120ms;
+  --duration-mid:  200ms;
+}
+
+/* ===== Base reset ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  font-weight: 600;            /* Inter 600 — the body default */
+  line-height: var(--leading-body);
+  letter-spacing: -0.108px;
+  color: var(--fg-1);
+  background: var(--bg-1);
+  font-feature-settings: "calt" 1;   /* contextual alternates on EVERYTHING */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ===== Semantic type ===== */
+.display-mega, .display-hero, .h1, .h2, h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: var(--leading-display);
+  letter-spacing: normal;
+  color: var(--fg-1);
+  margin: 0;
+  font-feature-settings: "calt" 1;
+}
+
+.display-mega { font-size: var(--size-display-mega); }
+.display-hero, h1 { font-size: var(--size-display-hero); }
+h2, .h2       { font-size: var(--size-section); }
+h3            { font-size: var(--size-subsection); }
+
+.alt-heading {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--size-alt-heading);
+  line-height: var(--leading-tight);
+  letter-spacing: -2.34px;
+}
+
+h4, .card-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--size-card-title);
+  line-height: 1.23;
+  letter-spacing: -0.39px;
+  margin: 0;
+}
+
+h5, .feature-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--size-feature);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.396px;
+  margin: 0;
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  letter-spacing: 0.18px;
+  margin: 0;
+}
+
+.body-semibold {
+  font-weight: 600;
+  letter-spacing: -0.108px;
+}
+
+.caption {
+  font-size: var(--size-caption);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.084px;
+}
+
+.caption-strong {
+  font-size: var(--size-caption);
+  font-weight: 600;
+  letter-spacing: -0.108px;
+  line-height: 1.5;
+}
+
+.small {
+  font-size: var(--size-small);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.084px;
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--fg-1);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  border-radius: var(--radius-min);
+}
+a:hover { text-decoration-color: var(--color-wise-green); }

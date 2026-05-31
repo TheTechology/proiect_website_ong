@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donează — Oferă un Bit de Oxigen — Grupul Verde</title>
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="stylesheet" href="styles/site.css">
+</head>
+<body data-page="doneaza">
+
+<div id="site-top"></div>
+
+<main class="wrap">
+  <header class="page-head" style="padding-bottom:32px;">
+    <div class="breadcrumb"><a href="index.html">Acasă</a><span class="sep">/</span><span>Donează</span></div>
+    <span class="eyebrow ph-eyebrow"><span class="dot-mini"></span>Concret · nu „together we can"</span>
+    <h1>Oferă un <mark>Bit de Oxigen.</mark></h1>
+    <p class="ph-sub">Bani, timp sau infrastructură. Fiecare contează diferit, dar nu există nivel mic la noi. 10 lei plătesc un caiet. 1.500 lei aduc un robot Marty într-o școală.</p>
+  </header>
+
+  <section class="section-sm" style="padding-top:0;">
+    <div class="donate-grid">
+      <!-- FORM -->
+      <div class="donate-card reveal">
+        <div class="freq" id="freq">
+          <button class="active" data-freq="once">O singură dată</button>
+          <button data-freq="monthly">Lunar</button>
+        </div>
+
+        <div class="amounts" id="amounts">
+          <button class="amt" data-amt="10"><div class="a-val">10 lei</div><div class="a-desc">Un caiet de laborator</div></button>
+          <button class="amt active" data-amt="50"><div class="a-val">50 lei</div><div class="a-desc">Materiale pentru un atelier</div></button>
+          <button class="amt" data-amt="120"><div class="a-val">120 lei</div><div class="a-desc">O expediție de mediu</div></button>
+          <button class="amt" data-amt="500"><div class="a-val">500 lei</div><div class="a-desc">O săptămână de cod</div></button>
+          <button class="amt" data-amt="1500"><div class="a-val">1.500 lei</div><div class="a-desc">Un robot Marty în clasă</div></button>
+          <button class="amt" data-amt="custom"><div class="a-val">Altă sumă</div><div class="a-desc">Alegi tu</div></button>
+        </div>
+
+        <div class="field" id="customWrap" style="display:none;">
+          <label for="customAmt">Suma ta (lei)</label>
+          <input class="input" type="number" id="customAmt" min="1" placeholder="ex. 250">
+        </div>
+
+        <div class="field"><label for="dname">Nume</label><input class="input" type="text" id="dname" placeholder="Numele tău"></div>
+        <div class="field"><label for="demail">Email</label><input class="input" type="email" id="demail" placeholder="adresa@email.ro"></div>
+
+        <button class="btn btn-primary btn-lg" id="donateBtn" style="width:100%;margin-top:8px;">Donează <span id="amtLabel">50 lei</span></button>
+        <p class="caption" style="text-align:center;margin-top:16px;color:var(--fg-3);">Plată securizată · Asociația Grupul Verde · CIF 44109108</p>
+      </div>
+
+      <!-- ASIDE: what it pays for -->
+      <aside class="donate-aside reveal d1">
+        <h3>Ce face donația ta.</h3>
+        <div class="da-row"><span class="da-n">10 lei</span><span class="da-d">Un caiet de laborator pentru un elev.</span></div>
+        <div class="da-row"><span class="da-n">120 lei</span><span class="da-d">O expediție de biodiversitate în Subcarpați.</span></div>
+        <div class="da-row"><span class="da-n">500 lei</span><span class="da-d">O săptămână de cod pentru o cohortă.</span></div>
+        <div class="da-row"><span class="da-n">1.500 lei</span><span class="da-d">Un robot Marty, donat unei școli din rural.</span></div>
+        <div class="da-row"><span class="da-n">€5K</span><span class="da-d">Echivalentul grantului WECF — 80 de tineri în GreenCode.</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- OTHER WAYS -->
+  <section class="section">
+    <div class="section-head reveal" style="margin-bottom:48px;">
+      <span class="eyebrow"><span class="dot-mini"></span>Alte moduri de a ajuta</span>
+      <h2>Nu doar bani.</h2>
+    </div>
+    <div class="ways">
+      <a class="way reveal" href="contact.html">
+        <span class="w-n">Timp</span>
+        <h3>Voluntariat.</h3>
+        <p>Mentor de programare, hands-on Arduino, ghid de expediții, traducere materiale, design grafic. Avem nevoie de toate.</p>
+        <span class="w-go">Scrie-ne <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a class="way reveal d1" href="contact.html">
+        <span class="w-n">Infrastructură</span>
+        <h3>Echipament.</h3>
+        <p>Laptopuri, plăci Arduino, senzori, kituri robotică. Sponsorizează echipamentul care intră direct în școli.</p>
+        <span class="w-go">Devino sponsor <i data-lucide="arrow-right"></i></span>
+      </a>
+      <a class="way reveal d2" href="contact.html">
+        <span class="w-n">Parteneriat</span>
+        <h3>Construiește cu noi.</h3>
+        <p>Finanțator, organizație Erasmus+, școală, ONG european, instituție publică — vino să vorbim.</p>
+        <span class="w-go">Hai să vorbim <i data-lucide="arrow-right"></i></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="image-slot.js"></script>
+<script src="js/site.js"></script>
+<script src="js/motion.js"></script>
+<script>
+  (function () {
+    var freq = "once", amt = "50";
+    function fmt(n) { return Number(n).toLocaleString("ro-RO"); }
+    function update() {
+      var label = document.getElementById("amtLabel");
+      var val = amt === "custom" ? (document.getElementById("customAmt").value || 0) : amt;
+      label.textContent = fmt(val) + " lei" + (freq === "monthly" ? " / lună" : "");
+    }
+    document.querySelectorAll("#amounts .amt").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll("#amounts .amt").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        amt = b.dataset.amt;
+        document.getElementById("customWrap").style.display = amt === "custom" ? "block" : "none";
+        update();
+      });
+    });
+    document.querySelectorAll("#freq button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll("#freq button").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        freq = b.dataset.freq;
+        update();
+      });
+    });
+    var ci = document.getElementById("customAmt");
+    if (ci) ci.addEventListener("input", update);
+    document.getElementById("donateBtn").addEventListener("click", function () {
+      var val = amt === "custom" ? (document.getElementById("customAmt").value || 0) : amt;
+      if (!val || Number(val) <= 0) { window.gvToast && window.gvToast("Alege sau introdu o sumă mai întâi."); return; }
+      window.gvToast && window.gvToast("Mulțumim! " + fmt(val) + " lei" + (freq === "monthly" ? " / lună" : "") + " — te ducem la plată.");
+    });
+    update();
+  })();
+</script>
+</body>
+</html>
